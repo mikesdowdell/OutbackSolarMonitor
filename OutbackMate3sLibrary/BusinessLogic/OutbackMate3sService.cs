@@ -64,7 +64,7 @@ namespace OutbackMate3sLibrary.BusinessLogic
                     DevicePortData devicePortData = new DevicePortData();
                     devicePortData.Port = portInfo.Port;
                     devicePortData.Device = portInfo.Dev;
-                    devicePortData.Timestamp = SysTime2DateTime(portInfo.Sys_Time);
+                    devicePortData.Timestamp = portInfo.Timestamp; // SysTime2DateTime(portInfo.Sys_Time);
                     devicePortData.Voltage = portInfo.Sys_Batt_V;
 
                     switch (portInfo.Dev)
@@ -234,7 +234,7 @@ namespace OutbackMate3sLibrary.BusinessLogic
                         data.Out_AH,
                         data.CC_mode,
                         data.Aux_mode,
-                        SysTime2DateTime(deviceStatus.Sys_Time)
+                        DateTime.Now //SysTime2DateTime(deviceStatus.Sys_Time)
                         );
                     csv.AppendLine(newLine);
                 }
